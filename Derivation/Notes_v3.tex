@@ -1,0 +1,488 @@
+\documentclass[journal,12pt,onecolumn]{IEEEtran}
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{diffcoeff}
+\usepackage{xcolor}
+\usepackage{float}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Derivation Document}
+
+\author{\IEEEauthorblockN{Ali U. Kilic}
+\IEEEauthorblockA{\textit{Department of Mechanical Engineering} \\
+\textit{Vanderbilt University}\\
+Nashville, Tennessee \\
+ali.u.kilic@vanderbilt.edu}
+\and\\
+\IEEEauthorblockN{David J. Braun}
+\IEEEauthorblockA{\textit{Department of Mechanical Engineering} \\
+\textit{Vanderbilt University}\\
+Nashville, Tennessee \\
+david.braun@vanderbilt.edu}
+
+}
+\maketitle
+
+
+
+\section{Potential Energy}
+Assuming there exists a potential energy function in the separable form:
+\begin{align}
+	\label{PE}
+	V = V_x(x)V_y(y).
+\end{align}
+In that case, the forces in the horizontal and vertical directions can be expressed as:
+\begin{align}\label{Fx}
+\hat{F}_x(x,y) = -\frac{\mathrm{d}V_x(x)}{\mathrm{d} x} V_y(y),\\ \label{Fy}
+\hat{F}_y(x,y) = -V_x(x)\frac{\mathrm{d} V_y(y)}{\mathrm{d} y}.
+\end{align}
+We assume the horizontal and vertical components of the forces to be in the form:
+\begin{align}\label{Fxa}
+	&\hat{F}_x(x,y) = \frac{\pi}{x_{\text{to}}}\sin\Big(\pi\frac{x}{x_\text{to}}\Big) V_y(y),\\ \label{Fya}
+	&\hat{F}_y(x,y) = V_x(x) k (l_0-y).
+\end{align}
+According to (\ref{PE}), the following relation must be satisfied:
+\begin{align}\label{SLIP033}
+	\frac{\partial \hat{F}_x(x,y)}{\partial y} = \frac{\partial \hat{F}_y(x,y)}{\partial x}.
+\end{align}
+Using this relation, we obtain
+\begin{align}
+	\label{H}
+\frac{\pi}{x_{\text{to}}}\sin\Big(\pi\frac{x}{x_\text{to}}\Big)\frac{dV_y(y)}{dy} = \frac{dV_x(x)}{dx} k (l_0-y).
+\end{align}
+Rearranging (\ref{H}), we get:
+\begin{align}
+\frac{\frac{dV_x(x)}{dx}}{\frac{\pi}{x_{\text{to}}}\sin\Big(\pi\frac{x}{x_\text{to}}\Big)} = \frac{\frac{dV_y(y)}{dy}}{k (l_0-y)} = c_0,
+\end{align}
+where $c_0$ is an unknown constant.
+
+Fist, we integrate
+\begin{align}
+	\label{Vdx}
+\frac{dV_x(x)}{dx} = c_0 \frac{\pi}{x_{\text{to}}} \sin\Big(\pi\frac{x}{x_\text{to}}\Big)
+\end{align}
+to obtain
+\begin{align}
+	\label{Vx}
+V_x(x) = -c_0 \Big(\cos \Big(\pi\frac{x}{x_\text{to}} \Big)+ c_1 \Big).
+\end{align}
+Next, we integrate
+\begin{align}
+	\label{Vdy}
+	\frac{dV_y(y)}{dy} = c_0 k(l_0-y) 
+\end{align}
+to obtain
+\begin{align}
+	\label{Vy}
+V_y(y) = c_0 \Big( kl_0y-\frac{k}{2}y^2+c_2 \Big).
+\end{align}
+
+Now, we need to determine three constants $c_0$, $c_1$, and $c_2$.
+
+First we determine $c_0$. Substituting (\ref{Vdx}) into (\ref{Fx}) and equating the result with (\ref{Fxa}) we find:
+\begin{align}\nonumber
+\hat{F}_x(x,y) &= -\frac{\mathrm{d}V_x(x)}{\mathrm{d} x} V_y(y)\\
+&= - c_0 \frac{\pi}{x_{\text{to}}}\sin\Big(\pi\frac{x}{x_\text{to}}\Big) V_y(y) = \frac{\pi}{x_{\text{to}}} \sin\Big(\pi\frac{x}{x_\text{to}}\Big) V_y(y),
+\end{align}
+and consequently,
+\begin{align}
+c_0 =-1.
+\end{align}
+
+In order to check the consistency of this result, we also substitute (\ref{Vdy}) into (\ref{Fy}) and equate the result with (\ref{Fya}) to find:
+\begin{align}\nonumber
+	\hat{F}_y(x,y) &= - V_x(x) \frac{\mathrm{d}V_y(y)}{\mathrm{d} y}\\
+	&= - V_x(x) c_0 k(l_0-y) = V_x(x) k(l_0-y),
+\end{align}
+which also gives,
+\begin{align}
+	\label{c0}
+	c_0 =-1.
+\end{align}
+
+Finally, we check the dimensional consistency of the approximation. Namely the following must hold:
+
+\begin{align} \nonumber
+[V] = [V_x(x)][V_y(y)]=Nm
+\end{align}
+and
+\begin{align} \nonumber
+	[F_x] = [\frac{dV_x(x)}{dx}][V_y(y)]=N
+\end{align}
+and
+\begin{align} \nonumber
+	[F_y] = [V_x(x)][\frac{dV_y(y)}{dy}]=N
+\end{align}
+All these conditions are satisfied if
+\begin{align} \nonumber
+	[c_0] = [-]
+\end{align}
+Therefore $c_0=-1$.
+
+Note that to satisfy the above conditions, the following must be true
+\begin{align} \nonumber
+	[F_x] = [\frac{\pi}{x_{\text{to}}}\sin\Big(\pi\frac{x}{x_\text{to}}\Big)][V_y(y)]=N
+\end{align}
+and
+\begin{align} \nonumber
+	[F_y] = [V_x(x)] [k(l_0-y)]=N
+\end{align}
+From the force relations we obtain
+\begin{align} \nonumber
+[\frac{\pi}{x_{\text{to}}}\sin\Big(\pi\frac{x}{x_\text{to}}\Big)]=[\frac{dV_x(x)}{dx}]
+\end{align}
+\begin{align} \nonumber
+[k(l_0-y)]=[\frac{dV_y(y)}{dy}]
+\end{align}
+Multiplying the force relations we obtain
+\begin{align} \nonumber
+	[\frac{\pi}{x_{\text{to}}}\sin\Big(\pi\frac{x}{x_\text{to}}\Big)]	[k(l_0-y)] [V_x(x)] [V_y(y)]=N^2
+\end{align}
+and therefore
+\begin{align} \nonumber
+	[\frac{\pi}{x_{\text{to}}}\sin\Big(\pi\frac{x}{x_\text{to}}\Big)]	[k(l_0-y)] = \frac{N}{m}
+\end{align}
+All these relations are satisfied with the proposed approximation.
+
+Next, we determine $c_1$ such that the spring is fully extended at toe-off:
+\begin{align}\label{Fxto}
+	\hat{F}_x(x_\text{to},y_\text{to}) =  F_x(x_\text{to},y_\text{to}) =0 ,\\ \label{Fyto}
+	\hat{F}_y(x_\text{to},y_\text{to}) =
+	F_y(x_\text{to},y_\text{to}) =0, \\ \label{Vto}
+	\hat{V}(x_\text{to},y_\text{to}) =
+	V(x_\text{to},y_\text{to}) =0.
+\end{align}
+Conditions (\ref{Fyto}) and (\ref{Vto}) are satisfied if
+\begin{align}
+	V_x(x_\text{to}) = -c_0 \Big(\cos(\pi)+ c_1 \Big) = 0,
+\end{align}
+which relation implies
+\begin{align}
+	\label{c1}
+	c_1 = 1.
+\end{align}
+Condition (\ref{Fxto}) is satisfied if
+\begin{align}
+\frac{dV_x(x = x_{\text{to}})}{dx} = c_0 \frac{\pi}{x_{\text{to}}} \sin(\pi) = 0,
+\end{align}
+which is always true.
+Therefore $c_1=1$.
+
+Finally, we determine $c_2$ such that,
+\begin{align}
+	\label{Vhs}
+\hat{V}(x_\text{hs},y_\text{hs}) =  V(x_\text{hs},y_\text{hs}).
+\end{align}
+Based on (\ref{Vhs}), (\ref{Vx}) and (\ref{Vy}), we obtain,
+\begin{align}
+-c_0^2 \Big(\cos \Big(\pi\frac{x_\text{hs}}{x_\text{to}} \Big)+ c_1 \Big)  \Big( kl_0y_\text{hs}-\frac{k}{2}y_\text{hs}^2+c_2 \Big) = V(x_\text{hs},y_\text{hs}).
+\end{align}
+Substituting (\ref{c0}) and (\ref{c1}), into the above relation, we obtain,
+\begin{align}
+	- \Big(\cos \Big(\pi\frac{x_\text{hs}}{x_\text{to}} \Big)+ 1 \Big)  \Big( kl_0y_\text{hs}-\frac{k}{2}y_\text{hs}^2+c_2 \Big) = V(x_\text{hs},y_\text{hs}).
+\end{align}
+By solving the above relation for $c_2$, we obtain
+\begin{align}
+	\label{c2}
+c_2 = -\frac{V(x_\text{hs},y_\text{hs})}{\cos \Big(\pi\frac{x_\text{hs}}{x_\text{to}} \Big)+ 1} - kl_0y_\text{hs} +\frac{k}{2}y_\text{hs}^2.
+\end{align}
+
+We are now in position to define the potential energy function. Using (\ref{Vx}), (\ref{c0}) and (\ref{c1}), we find
+\begin{align}
+	V_x(x) = \cos \Big(\pi\frac{x}{x_\text{to}} \Big)+ 1.
+\end{align}
+
+Similarly, using (\ref{Vy}), (\ref{c0}) and (\ref{c2}), we find
+\begin{align}
+	V_y(y) = \frac{V(x_\text{hs},y_\text{hs})}{\cos \Big(\pi\frac{x_\text{hs}}{x_\text{to}} \Big)+ 1} -  kl_0(y-y_\text{hs})+\frac{k}{2}(y^2 - y_\text{hs}^2).
+\end{align}
+
+\section{Equation of Motion}
+With the force components now identified, we can integrate to obtain the velocities under the assumption
+\begin{align}
+y = y_{\text{hs}}
+\end{align}
+
+Let us start with the horizontal direction:
+
+\begin{align}
+	m\ddot{x} = \frac{\pi}{x_{\text{to}}} \sin\Big(\pi\frac{x}{x_\text{to}}\Big)  V_y(y_{\text{hs}}),
+\end{align}
+\begin{align}
+	m\frac{d\dot{x}}{dx} \dot{x} =  \frac{\pi}{x_{\text{to}}} \sin\Big(\pi\frac{x}{x_\text{to}}\Big) V_y(y_{\text{hs}})
+\end{align}	
+\begin{align}
+	\int_{\dot{x}_{\text{hs}}}^{\dot{x}}\dot{x}d\dot{x} = \frac{\pi}{x_{\text{to}}} \frac{V_y(y_{\text{hs}})}{m}\int_{x_{\text{hs}}}^{x}\sin\Big(\pi\frac{x}{x_\text{to}}\Big)dx.
+\end{align}
+\begin{align}
+	\frac{1}{2}(\dot{x}^2 - \dot{x}_{\text{hs}}^2) = \frac{V_y(y_{\text{hs}})}{m} \Big(\cos\big(\pi \frac{x_{\text{hs}}}{x_{\text{to}}} \big) -\cos\big(\pi \frac{x}{x_{\text{to}}} \big) \Big).
+\end{align}
+\begin{align}
+	\dot{x}^2 = \dot{x}_{\text{hs}}^2 +\frac{2V_y(y_{\text{hs}})}{m} \Big(\cos\big(\pi \frac{x_{\text{hs}}}{x_{\text{to}}} \big) -\cos\big(\pi \frac{x}{x_{\text{to}}} \big) \Big).
+\end{align}
+This gives us the kinetic energy relationship in the horizontal direction and thus the horizontal velocity as a function of horizontal position
+\begin{align}
+	\dot{x}(x)^2 = \dot{x}_{\text{hs}}^2 + \frac{2V(x_\text{hs},y_\text{hs})}{m\Big(\cos(\pi \frac{x_{\text{hs}}}{x_{\text{to}}})+1 \Big)}\Big(\cos\big(\pi \frac{x_{\text{hs}}}{x_{\text{to}}} \big) -\cos\big(\pi \frac{x}{x_{\text{to}}} \big) \Big).
+\end{align}
+
+Let us now consider the vertical velocity,
+\begin{align}
+	m\ddot{y} = V_x(x) k (l_0-y_\text{hs}) - mg
+\end{align}
+or
+\begin{align}
+	m\frac{d\dot{y}}{dx} \dot x = V_x(x) k (l_0-y_\text{hs}) - mg
+\end{align}
+or
+\begin{align}
+	\frac{d\dot{y}}{dx} = \frac{k}{m} (l_0-y_\text{hs}) \frac{V_x(x)}{\dot x(x)} - g\frac{1}{\dot x(x)}
+\end{align}
+or
+\begin{align}
+	d\dot{y} = \frac{k}{m} (l_0-y_\text{hs}) \frac{V_x(x)}{\dot x(x)} dx - g\frac{dx}{\dot x(x)}
+\end{align}
+or
+\begin{align}
+\int_{\dot{y}_{\text{hs}}}^{\dot{y}}	d\dot{y} = \frac{k}{m} (l_0-y_\text{hs}) \int_{x_{\text{hs}}}^x\frac{V_x(x)}{\dot x(x)} dx - g \int_{x_{\text{hs}}}^x \frac{dx}{\dot x(x)}
+\end{align}
+or
+\begin{align}
+	\dot{y}-\dot{y}_{\text{hs}}= \frac{k}{m} (l_0-y_\text{hs}) \int_{x_{\text{hs}}}^x\frac{V_x(x)}{\dot x(x)} dx - g \int_{x_{\text{hs}}}^x \frac{dx}{\dot x(x)}
+\end{align}
+To integrate the vertical velocity, we assume $\dot{x}(x) \approx \dot{x}_{\text{hs}} $ and obtain
+\begin{align}
+	\dot{y}-\dot{y}_{\text{hs}}= \frac{k}{m \dot{x}_{\text{hs}}} (l_0-y_\text{hs}) \int_{x_{\text{hs}}}^xV_x(x) dx - \frac{g}{\dot{x}_{\text{hs}}} \int_{x_{\text{hs}}}^x dx.
+\end{align}
+or
+\begin{align}\nonumber
+	\dot{y}-\dot{y}_{\text{hs}}= & \frac{k}{m \dot{x}_{\text{hs}}} (l_0-y_\text{hs}) \int_{x_{\text{hs}}}^x \Big(\cos \Big(\pi\frac{x}{x_\text{to}} \Big)+ 1 \Big) dx \\
+	&- \frac{g}{\dot{x}_{\text{hs}}} (x-x_{\text{hs}}).
+\end{align}
+or
+\begin{align}\nonumber
+	\dot{y}-\dot{y}_{\text{hs}}= & \frac{k}{m \dot{x}_{\text{hs}}} (l_0-y_\text{hs}) (x-x_{\text{hs}}) \\ \nonumber
+	&+\frac{k}{m \dot{x}_{\text{hs}}} (l_0-y_\text{hs}) \int_{x_{\text{hs}}}^x \cos \Big(\pi\frac{x}{x_\text{to}} \Big) dx\\
+	&-\frac{g}{\dot{x}_{\text{hs}}} (x-x_{\text{hs}}).
+\end{align}
+or
+\begin{align}\nonumber
+	\dot{y}-\dot{y}_{\text{hs}}= & \frac{k}{m \dot{x}_{\text{hs}}} (l_0-y_\text{hs}) (x-x_{\text{hs}}) \\ \nonumber
+	&+\frac{x_{\text{to}}}{\pi} \frac{k}{m \dot{x}_{\text{hs}}} (l_0-y_\text{hs}) \Big(\sin \Big(\pi\frac{x}{x_\text{to}}\Big) - \sin \Big(\pi\frac{x_\text{hs}}{x_\text{to}} \Big) \Big)\\
+	&-\frac{g}{\dot{x}_{\text{hs}}} (x-x_{\text{hs}}).
+\end{align}
+or
+\begin{align}\nonumber
+	\dot{y}-\dot{y}_{\text{hs}}= 	&\frac{x_{\text{to}}}{\pi} \frac{k}{m \dot{x}_{\text{hs}}} (l_0-y_\text{hs}) \Big(\sin \Big(\pi\frac{x}{x_\text{to}}\Big) - \sin \Big(\pi\frac{x_\text{hs}}{x_\text{to}} \Big) \Big)\\ \nonumber
+	& \Big( \frac{k}{m \dot{x}_{\text{hs}}} (l_0-y_\text{hs}) -\frac{g}{\dot{x}_{\text{hs}}} \Big) (x-x_{\text{hs}}).
+\end{align}
+Finally, we obtain
+\begin{align}
+\dot{y}(x) =\dot{y}_{\text{hs}} + c_{y1} \Big(\sin \Big(\pi\frac{x}{x_\text{to}}\Big) - \sin \Big(\pi\frac{x_\text{hs}}{x_\text{to}} \Big) \Big) + c_{y2}(x-x_{\text{hs}}) 
+\end{align}
+where 
+\begin{align}
+	c_{y1} = \frac{x_{\text{to}}}{\pi} \frac{k}{m \dot{x}_{\text{hs}}} (l_0-y_\text{hs}),
+\end{align}
+and
+\begin{align}
+c_{y2} = \frac{k}{m \dot{x}_{\text{hs}}} (l_0-y_\text{hs}) -\frac{g}{\dot{x}_{\text{hs}}} = \frac{\pi}{x_{\text{to}}} c_{y1} -\frac{g}{\dot{x}_{\text{hs}}}.
+\end{align}
+We can also present this relation in the following way:
+\begin{align}
+	\dot{y}(x) =\dot{y}_{\text{hs}} + c_{y}(k) \Big(\sin \Big(\pi\frac{x}{x_\text{to}}\Big) - \sin \Big(\pi\frac{x_\text{hs}}{x_\text{to}} \Big) + \frac{\pi}{x_{\text{to}}}(x-x_{\text{hs}}) \Big) - \frac{g}{\dot{x}_{\text{hs}}}(x-x_{\text{hs}})
+\end{align}
+where 
+\begin{align}
+	c_{y}(k) = \frac{x_{\text{to}}}{\pi} \frac{k}{m \dot{x}_{\text{hs}}} (l_0-y_\text{hs}).
+\end{align}
+
+\section{Steady State Stiffness}
+\begin{align}
+	\dot{x}(x)^2 = \dot{x}_{\text{hs}}^2 + \underbrace{\frac{2V(x_\text{hs},y_\text{hs})}{m\Big(\cos(\pi \frac{x_{\text{hs}}}{x_{\text{to}}})+1 \Big)} }_{c_x(k)}\Big(\cos\big(\pi \frac{x_{\text{hs}}}{x_{\text{to}}} \big) - \cos\big(\pi \frac{x}{x_{\text{to}}} \big)\Big).
+\end{align}
+
+\begin{align}
+	\dot{x}(x)^2 = \dot{x}_{\text{hs}}^2 + c_x(k)\Big(\cos\big(\pi \frac{x_{\text{hs}}}{x_{\text{to}}} \big) - \cos\big(\pi \frac{x}{x_{\text{to}}} \big)\Big).
+\end{align}
+
+Note that the intuition one may use here is that the potential energy of the approximate system in the $x$ direction (more precisely $2V/m$ in the $x$ direction) is given by
+\begin{align}
+	 c_x(k)\Big(\cos\big(\pi \frac{x_{\text{hs}}}{x_{\text{to}}} \big) - \cos\big(\pi \frac{x}{x_{\text{to}}} \big)\Big)
+\end{align}
+where $x_{\text{hs}}$ is the coordinate that defines the initial condition! This means that if we want to concatenate the velocity prediction because two different stiffness are used then it should be done by changing $k$ (and nothing else) in $c_x(k)$ but chaining the initial condition defined by $x_{\text{hs}}$ in the above formula.
+
+Therefore    
+\begin{align}
+	\dot{x}(0)^2 = \dot{x}_{\text{hs}}^2 + c_x(k_1)\Big(\cos\big(\pi \frac{x_{\text{hs}}}{x_{\text{to}}} \big) -1\Big)
+\end{align}
+and
+\begin{align}
+	\dot{x}(x_\text{to})^2 = \dot{x}(0)^2 + c_x(k_2)\Big(\cos\big(\pi \frac{0}{x_{\text{to}}} \big) +1 \Big)
+\end{align}
+such that
+\begin{align}
+	\dot{x}(x_\text{to})^2 = \dot{x}_{\text{hs}}^2 + c_x(k_1)\Big(\cos\big(\pi \frac{x_{\text{hs}}}{x_{\text{to}}} \big) -1\Big) + 2 c_x(k_2).
+\end{align}
+Now, to find the steady state condition, we assume
+\begin{align}
+	\dot{x}(x_\text{to})^2 = \dot{x}_{\text{hs}}^2.
+\end{align}
+Consequently, we obtain
+\begin{align}
+	0= c_x(k_1)\Big(\cos\big(\pi \frac{x_{\text{hs}}}{x_{\text{to}}} \big) -1\Big) + 2 c_x(k_2),
+\end{align}
+and
+\begin{align}
+	\frac{c_x(k_2)}{c_x(k_1)}= \frac{1}{2} \Big(1-\cos\big(\pi \frac{x_{\text{hs}}}{x_{\text{to}}} \big)\Big),
+\end{align}
+and
+\begin{align}
+	\frac{k_2}{k_1}= \frac{1}{2} \Big(1-\cos\big(\pi \frac{x_{\text{hs}}}{x_{\text{to}}} \big)\Big).
+\end{align}
+This relation will ensure that the toe off velocity at the end of the step in the x direction is the same as the heel strike velocity at the beginning of the step in the x direction. Assuming
+\begin{align}
+	\frac{k_2^*}{k_1}= \frac{1}{2} \Big(1-\cos\big(\pi \frac{x_{\text{hs}}}{x_{\text{to}}} \big)\Big).
+\end{align}
+and 
+\begin{align}
+	k_2 = k_2^*+ \Delta k_2,
+\end{align}
+and
+\begin{align}
+c_x(k_2) = c_x(k_2^*) + c_x(\Delta k_2),
+\end{align}
+and
+\begin{align}
+	c_x(k_2) = \frac{1}{2} c_x(k_1) \Big(1-\cos\big(\pi \frac{x_{\text{hs}}}{x_{\text{to}}} \big)\Big) +
+	 c_x(\Delta k_2),
+\end{align}
+we find
+\begin{align}
+	\dot{x}(x_\text{to})^2 = \dot{x}_{\text{hs}}^2 + c_x(k_1)\Big(\cos\big(\pi \frac{x_{\text{hs}}}{x_{\text{to}}} \big) -1\Big) + c_x(k_1) \Big(1-\cos\big(\pi \frac{x_{\text{hs}}}{x_{\text{to}}} \big)\Big) + 2 c_x(\Delta k_2).
+\end{align}
+or
+\begin{align}
+	\dot{x}(x_\text{to})^2 = \dot{x}_{\text{hs}}^2 +  2 c_x(\Delta k_2)
+\end{align}
+where
+\begin{align}
+	c_x(k) =  \frac{2V(x_\text{hs},y_\text{hs})}{m\Big(\cos(\pi \frac{x_{\text{hs}}}{x_{\text{to}}})+1 \Big)} = \frac{k}{m}\frac{\Big(l_0 - \sqrt{x_\text{hs}^2+y_\text{hs}^2}\Big)^2}{ \cos\big(\pi \frac{x_\text{hs}}{x_\text{to}}\big)+1}
+\end{align}
+Consequently,
+\begin{align}
+	\dot{x}(x_\text{to})^2 = \dot{x}_{\text{hs}}^2 +  \frac{2 \Delta k_2}{m}\frac{\Big(l_0 - \sqrt{x_\text{hs}^2+y_\text{hs}^2}\Big)^2}{ \cos\big(\pi \frac{x_\text{hs}}{x_\text{to}}\big)+1}
+\end{align}
+Note that when $x_{\text{hs}}=-x_{\text{to}}$ then
+\begin{align}
+	\lim_{x_{\text{hs}} \rightarrow -x_{\text{to}}}\frac{\Big(l_0 - \sqrt{x_\text{hs}^2+y_\text{hs}^2}\Big)^2}{ \cos\big(\pi \frac{x_\text{hs}}{x_\text{to}}\big)+1} = 0
+\end{align}
+because
+\begin{align}
+	\lim_{x_{\text{hs}} \rightarrow -x_{\text{to}}}\frac{\Big(l_0 - \sqrt{x_\text{hs}^2+y_\text{hs}^2}\Big)^2}{ \cos\big(\pi \frac{x_\text{hs}}{x_\text{to}}\big)+1} = \lim_{x_{\text{hs}} \rightarrow -x_{\text{to}}} 
+	\frac{2\Big(l_0 - \sqrt{x_\text{hs}^2+y_\text{hs}^2}\Big) \frac{-x_\text{hs}}{ \sqrt{x_\text{hs}^2+y_\text{hs}^2}}}{ -\frac{\pi}{x_{\text{to}}}\sin\big(\pi \frac{x_\text{hs}}{x_\text{to}}\big)} = 
+	\lim_{x_{\text{hs}} \rightarrow -x_{\text{to}}} 
+	\frac{=0}{\neq 0}=0
+\end{align}
+\section{Take off Condition}
+\begin{align}
+	\dot{y}(x) =\dot{y}_{\text{hs}} + c_{y}(k) \Big(\sin \Big(\pi\frac{x}{x_\text{to}}\Big) - \sin \Big(\pi\frac{x_\text{hs}}{x_\text{to}} \Big) + \frac{\pi}{x_{\text{to}}}(x-x_{\text{hs}}) \Big) - \frac{g}{\dot{x}_{\text{hs}}}(x-x_{\text{hs}})
+\end{align}
+where 
+\begin{align}
+	c_{y}(k) = \frac{x_{\text{to}}}{\pi} \frac{k}{m \dot{x}_{\text{hs}}} (l_0-y_\text{hs}).
+\end{align}
+Note that the intuition one may use here is that the vertical momentum of the approximate system (more precisely $p_y/m$) is given by
+\begin{align}
+c_{y}(k) \Big(\sin \Big(\pi\frac{x}{x_\text{to}}\Big) - \sin \Big(\pi\frac{x_\text{hs}}{x_\text{to}} \Big) + \frac{\pi}{x_{\text{to}}}(x-x_{\text{hs}}) \Big) - \frac{g}{\dot{x}_{\text{hs}}}(x-x_{\text{hs}})
+\end{align}
+where $x_{\text{hs}}$ is the coordinate that defines the initial condition! This means that if we want to concatenate the velocity prediction because two different stiffness are used then it should be done by changing $k$ (and nothing else) in $c_y(k)$ but chaining the initial condition defined by $x_{\text{hs}}$ in the above formula.
+
+Therefore    
+\begin{align}
+	\dot{y}(0) =\dot{y}_{\text{hs}} - c_{y}(k_1) \Big( \sin \Big(\pi\frac{x_\text{hs}}{x_\text{to}} \Big) + \frac{\pi}{x_{\text{to}}}x_{\text{hs}} \Big) + \frac{g}{\dot{x}_{\text{hs}}} x_{\text{hs}}
+\end{align}
+and
+\begin{align}
+	\dot{y}(x_{\text{to}}) = \dot{y}(0) + c_{y}(k_2) \Big(\sin \Big(\pi\frac{x_{\text{to}}}{x_\text{to}}\Big) - \sin \Big(\pi\frac{0}{x_\text{to}} \Big) + \frac{\pi}{x_{\text{to}}}(x_{\text{to}}-0) \Big) - \frac{g}{\dot{x}_{\text{hs}}}(x_{\text{to}}-0)
+\end{align}
+such that
+\begin{align}
+	\dot{y}(x_{\text{to}}) = \dot{y}(0) + c_{y}(k_2) \pi - \frac{g}{\dot{x}_{\text{hs}}}x_{\text{to}}
+\end{align}
+Consequently
+\begin{align}
+	\dot{y}(x_{\text{to}}) = \dot{y}_{\text{hs}} - c_{y}(k_1) \Big( \sin \Big(\pi\frac{x_\text{hs}}{x_\text{to}} \Big) + \frac{\pi}{x_{\text{to}}}x_{\text{hs}} \Big) + \frac{g}{\dot{x}_{\text{hs}}} x_{\text{hs}} + c_{y}(k_2) \pi - \frac{g}{\dot{x}_{\text{hs}}}x_{\text{to}}
+\end{align}
+or
+\begin{align}
+	\dot{y}(x_{\text{to}}) = \dot{y}_{\text{hs}} - c_{y}(k_1) \Big( \sin \Big(\pi\frac{x_\text{hs}}{x_\text{to}} \Big) + \pi \frac{x_{\text{hs}}}{x_{\text{to}}} \Big) +c_{y}(k_2) \pi + \frac{g}{\dot{x}_{\text{hs}}} (x_{\text{hs}}-x_{\text{to}})
+\end{align}
+Now, to find the take off condition, we set
+\begin{align}
+\dot{y}(x_{\text{to}})\leq 0.
+\end{align}
+\begin{align}
+	\dot{y}_{\text{hs}} - c_{y}(k_1) \Big( \sin \Big(\pi\frac{x_\text{hs}}{x_\text{to}} \Big) + \pi \frac{x_{\text{hs}}}{x_{\text{to}}} \Big) +c_{y}(k_2) \pi - \frac{g}{\dot{x}_{\text{hs}}} (x_{\text{to}}-x_{\text{hs}})\leq 0.
+\end{align}
+\begin{align}
+c_{y}(k_2) \pi - c_{y}(k_1) \Big( \sin \Big(\pi\frac{x_\text{hs}}{x_\text{to}} \Big) + \pi \frac{x_{\text{hs}}}{x_{\text{to}}} \Big) \leq \frac{g}{\dot{x}_{\text{hs}}} (x_{\text{to}}-x_{\text{hs}}) - \dot{y}_{\text{hs}}.
+\end{align}
+Now let us introduce the following substitution
+\begin{align}
+	c_{y}(k) = C k,
+\end{align}
+where
+\begin{align}
+	C =\frac{x_{\text{to}}}{\pi} \frac{1}{m \dot{x}_{\text{hs}}} (l_0-y_\text{hs}).
+\end{align}
+Consequently,
+\begin{align}
+	C k_2 \pi - C k_1 \Big( \sin \Big(\pi\frac{x_\text{hs}}{x_\text{to}} \Big) + \pi \frac{x_{\text{hs}}}{x_{\text{to}}} \Big) \leq \frac{g}{\dot{x}_{\text{hs}}} (x_{\text{to}}-x_{\text{hs}}) - \dot{y}_{\text{hs}}.
+\end{align}
+Now let us assume that we want to find the range of stiffness in early stance $k_1$, such that no take off accrues if we use the (previously derived) one step stiffness policy to reach steady state
+\begin{align}
+	\frac{k_2}{k_1}= \frac{1}{2} \Big(1-\cos\big(\pi \frac{x_{\text{hs}}}{x_{\text{to}}} \big)\Big).
+\end{align}
+In this case, we find,
+\begin{align}
+	C \frac{1}{2} \Big(1-\cos\big(\pi \frac{x_{\text{hs}}}{x_{\text{to}}} \big)\Big) k_1 \pi - C k_1 \Big( \sin \Big(\pi\frac{x_\text{hs}}{x_\text{to}} \Big) + \pi \frac{x_{\text{hs}}}{x_{\text{to}}} \Big) \leq \frac{g}{\dot{x}_{\text{hs}}} (x_{\text{to}}-x_{\text{hs}}) - \dot{y}_{\text{hs}}.
+\end{align}
+such that
+\begin{align}
+	C \Bigg(\frac{\pi}{2} \Big(1-\cos\Big(\pi \frac{x_{\text{hs}}}{x_{\text{to}}} \Big)\Big)  -  \sin \Big(\pi\frac{x_\text{hs}}{x_\text{to}} \Big) - \pi \frac{x_{\text{hs}}}{x_{\text{to}}} \Bigg) k_1 \leq \frac{g}{\dot{x}_{\text{hs}}} (x_{\text{to}}-x_{\text{hs}}) - \dot{y}_{\text{hs}}.
+\end{align}
+or
+\begin{align}
+	\frac{x_{\text{to}}}{\pi} \frac{1}{m} (l_0-y_\text{hs}) \Bigg(\frac{\pi}{2} \Big(1-\cos\Big(\pi \frac{x_{\text{hs}}}{x_{\text{to}}} \Big)\Big)  -  \sin \Big(\pi\frac{x_\text{hs}}{x_\text{to}} \Big) - \pi \frac{x_{\text{hs}}}{x_{\text{to}}} \Bigg) k_1 \leq \Big( g (x_{\text{to}}-x_{\text{hs}}) - \dot{x}_{\text{hs}}\dot{y}_{\text{hs}}\Big) .
+\end{align} 
+or
+\begin{align}
+	\Bigg(\frac{\pi}{2} \Big(1-\cos\Big(\pi \frac{x_{\text{hs}}}{x_{\text{to}}} \Big)\Big)  -  \sin \Big(\pi\frac{x_\text{hs}}{x_\text{to}} \Big) - \pi \frac{x_{\text{hs}}}{x_{\text{to}}} \Bigg) k_1 \leq 
+	\frac{\pi}{x_{\text{to}}} \frac{m}{(l_0-y_\text{hs})}  \Big( g (x_{\text{to}}-x_{\text{hs}}) - \dot{x}_{\text{hs}}\dot{y}_{\text{hs}}\Big),
+\end{align} 
+or
+\begin{align}
+	\Bigg(\frac{\pi}{2} \Big(1-\cos\Big(\pi \frac{x_{\text{hs}}}{x_{\text{to}}} \Big)\Big)  -  \sin \Big(\pi\frac{x_\text{hs}}{x_\text{to}} \Big) - \pi \frac{x_{\text{hs}}}{x_{\text{to}}} \Bigg) \frac{k_1(l_0-y_\text{hs})}{mg} \leq 
+	\frac{\pi}{x_{\text{to}}} \Big( x_{\text{to}}-x_{\text{hs}} - \frac{\dot{x}_{\text{hs}}\dot{y}_{\text{hs}}}{g}\Big),
+\end{align} 
+or
+\begin{align}
+	\Bigg(\pi \sin\Big(\frac{\pi}{2} \frac{x_{\text{hs}}}{x_{\text{to}}} \Big)^2  -  \sin \Big(\pi\frac{x_\text{hs}}{x_\text{to}} \Big) - \pi \frac{x_{\text{hs}}}{x_{\text{to}}} \Bigg) \frac{k_1(l_0-y_\text{hs})}{mg} \leq 
+	\frac{\pi}{x_{\text{to}}} \Big( x_{\text{to}}-x_{\text{hs}} - \frac{\dot{x}_{\text{hs}}\dot{y}_{\text{hs}}}{g}\Big).
+\end{align} 
+or
+\begin{align}
+\frac{k_1(l_0-y_\text{hs})}{mg} \leq 
+	\frac{\pi}{x_{\text{to}}} \frac{(x_{\text{to}}-x_{\text{hs}}) - \frac{\dot{x}_{\text{hs}}\dot{y}_{\text{hs}}}{g}}{\pi \sin\Big(\frac{\pi}{2} \frac{x_{\text{hs}}}{x_{\text{to}}} \Big)^2  -  \sin \Big(\pi\frac{x_\text{hs}}{x_\text{to}} \Big) - \pi \frac{x_{\text{hs}}}{x_{\text{to}}}}.
+\end{align} 
+or
+\begin{align}
+	\frac{k_1(l_0-y_\text{hs})}{mg} \leq  \frac{1-\frac{x_{\text{hs}}}{x_{\text{to}}} - \frac{\dot{x}_{\text{hs}}\dot{y}_{\text{hs}}}{gx_{\text{to}}}}{\sin\Big(\frac{\pi}{2} \frac{x_{\text{hs}}}{x_{\text{to}}} \Big)^2  - \frac{1}{\pi}  \sin \Big(\pi\frac{x_\text{hs}}{x_\text{to}} \Big) - \frac{x_{\text{hs}}}{x_{\text{to}}}}.
+\end{align} 
+\end{document}
