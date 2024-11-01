@@ -16,4 +16,4 @@ Our paper proposes a new reduced-order model for complex walking robots, and a s
 
   ## Animation of Stabilized Walking
 
-![Animation](Animation Video/Animation.gif)
+![]([Animation Video/Animation.gif](https://github.com/aliumutkilic/IROS-2023-AliKilic/blob/main/Animation%20Video/Animation.gif))
