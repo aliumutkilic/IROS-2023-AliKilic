@@ -12,3 +12,8 @@ Our paper proposes a new reduced-order model for complex walking robots, and a s
 - **Figure 4/**: Folder has code required to generate Figure 4 from the paper.
 - **Figure 5/**: Folder has code required to generate Figure 5 from the paper.
 - **Derivation/**: Includes the detailed derivation of the novel model presented in the paper and the Mathematica files for it.
+
+
+  ## Animation of Stabilized Walking
+
+![Animation](Derivation/Animation.gif)
